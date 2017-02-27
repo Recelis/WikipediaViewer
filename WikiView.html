@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" type="text/css" href="css/WikiView.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <title>WikiSearch</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="./WikiView.js"></script>
+
+  </head>
+  <body class = "formatting">
+    <div class = "container">
+      <div class = "row">
+        <div class="col-xs-12"><h1 class = "titleClass">WikiSearch</h1></div>
+      </div>
+      <!--this is the splash page-->
+      <div class = "row">
+          <div class = "col-xs-6"> <p> press the button to continue to WikiSearch </p> </div>
+          <div class = "col-xs-6"><button type=”submit btn btn-primary”>magnifying glass</button> </div>
+      </div>
+      <div class = "row">
+        <div class = "col-xs-12 titleClass"><h2> <em></em></h2></div>
+      </div>  
+      <!--this is the splash page-->
+      <div class = "row">  
+        <div class = "col-xs-6"> <p id = "city"> city</p> </div>
+        <div class = "col-xs-6"> <p id = "country"> country </p> </div>
+      </div>
+      <br><br> <!-- add padding -->
+      <div class = "row">  
+        <div class = "col-xs-4"> <p id = "condition"> condition</p> </div> 
+        <div class = "col-xs-4"> <button class = "toggle"><p class = "temperature"> temperature</p></button> </div>
+        <div class = "col-xs-4"> <p id = "humidity"> humidity</p></div>
+      </div>
+      <div class = "row">
+        <div class = "col-xs-6"> <p class = "ctime"></p> </div>
+        <div class = "col-xs-6"> <p class = "cdate"></p> </div>
+      </div>
+    </div>
+  </body>
+</html>

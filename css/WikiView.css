@@ -1,0 +1,64 @@
+body{
+    /*background-image:url(https://thecreativityclub.files.wordpress.com/2011/05/vintageskieswpbyvempd221.jpg); sunny*/
+    background-color: #1E90FF;
+}
+
+.readyToSearch{
+
+}
+
+.searchButton{
+    
+}
+.titleClass{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+}
+ 
+.formatting{
+    color:white;
+} 
+
+#city{
+    text-align: right;
+    padding-top: 20px;
+    font-size: 30px;
+}
+
+#country{
+    text-align: left;
+    padding-top: 25px;
+    font-size: 25px;
+}
+
+#humidity{
+    text-align:left;
+    padding: 25px;
+    font-size: 30px;
+}
+
+#condition{
+    text-align:right;
+    padding: 25px;
+    font-size: 30px;
+}
+
+.toggle{
+    text-align: center;
+    padding: 25px;
+    font-size: 30px;
+    background-color: Transparent;
+    border: none;
+}
+
+.ctime{
+    text-align:right;
+    padding: 25px;
+    font-size: 30px;
+}
+.cdate{
+    text-align:left;
+    padding: 25px;
+    font-size: 30px;
+}

@@ -1,5 +1,5 @@
 body{
-    background-image:url(https://thecreativityclub.files.wordpress.com/2011/05/vintageskieswpbyvempd221.jpg); 
+    background-image:url("../images/hipsterlandscape.jpg"); 
     /*background-color: #1E90FF;*/
     /*background-color: black;    */
 }
@@ -9,13 +9,17 @@ body{
     font-family: 'Roboto', sans-serif;
     font-size: 50px;
     padding-top: 250px;
+    color: white;
 }
 
 .readyToSearchButton{
     text-align: center;
     padding: 30px;
     font-size: 30px;
-    color:rgba(0,0,0,0.4);  /* work on opacity of buttons */
+    /* work on opacity of buttons */
+    outline:none;
+    background-color:transparent;
+    background-repeat:no-repeat;
 }
 
 .searchButton{

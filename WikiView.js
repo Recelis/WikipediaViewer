@@ -4,10 +4,13 @@
  remove any unnecessary spaces
  if form is not filled, don't send off the API call
  
+
+ // getting a random article https://en.wikipedia.org/wiki/Special:Random
+ // calling a wikipedia article
+
  */
 
  $(document).ready(function(){
-   var url = "#";
    $(".readyToSearchButton").click(function(){
     alert("button has just been pressed!");
     $.ajax({
@@ -19,7 +22,15 @@
     });
   });
   $(".feelLuckyButton").click(function(){
-    alert("yeah you are feeling lucky!");
+    var url = "https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&origin=*"; // zero to call random
+    alert("yeah you are feeling special!");
+    $.ajax({
+      type: "GET", 
+      url: url,
+      success: function(data){
+      // console.log(data);
+      }
+    });
   });
  }
  );

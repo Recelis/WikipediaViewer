@@ -1,5 +1,6 @@
 body{
     background-image:url("../images/hipsterlandscape.jpg"); 
+    background-size: 100%;
     /*background-color: #1E90FF;*/
     /*background-color: black;    */
 }
@@ -12,25 +13,17 @@ body{
     color: white;
 }
 
-.readyToSearchButton{
-    text-align: center;
-    padding: 30px;
-    font-size: 30px;
-    /* work on opacity of buttons */
-    outline:none;
-    background-color:transparent;
-    background-repeat:no-repeat;
-}
 
-.searchButton{
-    
+.searchBar{
+    text-align:center;
 }
 
 .feelLuckyButton{
-    text-align:left;
+    text-align:center;
 }
  
 .descript{
     color:black;
     text-align: right;
+    position:fixed;
 } 

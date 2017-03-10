@@ -12,14 +12,21 @@
 
  $(document).ready(function(){
    $(".readyToSearchButton").click(function(){
-    alert("button has just been pressed!");
+   // change to different layout outline
+   $(".searchBar").append("<input type='text'/>");
+   $(".searchButton").append("<button type=”submit”>submit</button> ");
+   $(".readyToSearchButton").html("");
+   $(".searchButton").click(function(){
+    var wikiSearchUrl = "#";
+    alert("searching!");
     $.ajax({
-      type: "GET", 
-      url: urlLoc,
+      type: "GET",
+      url: wikiSearchUrl,
       success: function(data){
-      // console.log(data);
+        console.log(data);
       }
     });
+   });  
   });
   $(".feelLuckyButton").click(function(){
     var url = "https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&origin=*"; // zero to call random

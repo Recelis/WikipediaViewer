@@ -14,7 +14,6 @@
    // change to different layout outline
    $(".searchButton").click(function(){
     var wikiSearchUrl = "#";
-    alert("searching!");
     $.ajax({
       type: "GET",
       url: wikiSearchUrl,
@@ -25,13 +24,12 @@
    });  
 
   $("#feelLuckyButton").click(function(){
-    var url = "https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&origin=*"; // zero to call random
-    alert("yeah you are feeling special!");
+    var url = "https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&origin=*&format=json"; // zero to call random
     $.ajax({
       type: "GET", 
       url: url,
       success: function(data){
-      console.log(data);
+      console.log(data["query"]["random"][0]["title"]);
       }
     });
   });

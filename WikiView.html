@@ -27,20 +27,16 @@
       </div>
       <!--this is the splash page-->
       <div class = "row">   
-        <div class = "col-xs-12 searchBar"><form action=”/URL”><input type=”text” required placeholder='what do you want to learn today?' size = "50"</form></div>
+        <div class = "col-xs-12 searchBar">
+          <form action=”/” id ="searchForm">
+            <input type=”text” name = "s" required placeholder='what do you want to learn about today?' size = "50">
+            <input type="submit" value = "Search">
+          </form>
+        </div>
       </div>
       <div class = "row">
-          <div class = "col-xs-12 feelLuckyButton"><button type="submit btn"> I'm feeling positive! </button> </div>
-      </div>
-      <div class = "row">
-        <div class = "col-xs-12 titleClass"><h2> <em></em></h2></div>
-      </div>  
-      <!--this is the page after-->
-
-      <div class = "row">
-        <div class = "col-xs-6"> <p class = "ctime"></p> </div>
-        <div class = "col-xs-6"> <p class = "cdate"></p> </div>
-      </div>
+          <div class = "formatLuckyButton"><button type="submit btn" id="feelLuckyButton"> I'm feeling positive! </button> </div>
+      </div> 
     </div>
   </body>
 </html>

@@ -24,7 +24,7 @@
     });
    });  
 
-  $(".feelLuckyButton").click(function(){
+  $("#feelLuckyButton").click(function(){
     var url = "https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&origin=*"; // zero to call random
     alert("yeah you are feeling special!");
     $.ajax({

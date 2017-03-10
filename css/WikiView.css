@@ -19,9 +19,13 @@ body{
 }
 
 .feelLuckyButton{
-    text-align:center;
+    
 }
- 
+
+.formatLuckyButton{
+    text-align:center;
+} 
+
 .descript{
     color:black;
     text-align: right;

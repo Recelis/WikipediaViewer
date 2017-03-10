@@ -18,10 +18,17 @@ body{
     text-align:center;
 }
 
-.feelLuckyButton{
+#feelLuckyButton{
     
 }
-
+.buttonStyle{
+   font: bold helvetica times-new-roman;
+   background-color:transparent;
+   border:2px solid;
+   border-color: white;
+   color:white;
+   border-radius: 2%;
+}
 .formatLuckyButton{
     text-align:center;
 } 

@@ -28,8 +28,10 @@
     $.ajax({
       type: "GET", 
       url: url,
+      async : false, // not sure what this is actually doing
       success: function(data){
       console.log(data["query"]["random"][0]["title"]);
+      window.open("https://en.wikipedia.org/wiki/"+data["query"]["random"][0]["title"]);
       }
     });
   });

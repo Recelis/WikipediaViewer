@@ -12,15 +12,22 @@
 
  $(document).ready(function(){
    // change to different layout outline
-   $(".searchButton").click(function(){
-    var wikiSearchUrl = "#";
-    $.ajax({
-      type: "GET",
-      url: wikiSearchUrl,
-      success: function(data){
-        console.log(data);
-      }
-    });
+   $('#searchButton').click(function(event) {
+      event.preventDefault();
+  //  $("#searchForm").submit(function(){
+      $(".titleClass").css("padding-top","0px");
+      //  window.open("https://en.wikipedia.org/wiki/"+document.getElementById("searchText").value);
+      // alert(document.getElementById("searchText").value);
+    //   console.log("boo!");
+    // var wikiSearchUrl = "#";
+    // $.ajax({
+    //   type: "GET",
+    //   url: wikiSearchUrl,
+    //   success: function(data){
+    //     console.log(data);
+        
+    //   }
+    // });
    });  
 
   $("#feelLuckyButton").click(function(){

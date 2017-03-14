@@ -29,9 +29,14 @@
       crossDomain:true,
       success: function(data){
         console.log(data);
-        $(".searchMenu").append("<div class='searchResults0'>"+data["query"]["search"][0]["title"] + "</div>");
+        var result = data["query"]["search"][0]["title"];
+        $(".searchMenu").append("<div class='searchResults0'></div>");
+        $(".searchResults0").html("<a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+searchResult+"\'>"+result+"</a>");
         for (var ii =1; ii < data["query"]["search"].length -1; ii++){
-          $(".searchMenu").append("<div class=\'searchResults"+ii+"\'>"+data["query"]["search"][ii]["title"] + "</div>");
+          var appendValue = ii-1
+          $(".searchResults"+appendValue).append("<div class=\'searchResults"+ii+"\'></div>");
+          var searchResult = data["query"]["search"][ii]["title"];
+          $(".searchResults"+ii).html("<a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+searchResult+"\'>"+searchResult+"</a>");
           console.log(data["query"]["search"][ii]["title"]);
         }
       }

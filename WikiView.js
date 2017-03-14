@@ -19,15 +19,23 @@
       //  window.open("https://en.wikipedia.org/wiki/"+document.getElementById("searchText").value);
       // alert(document.getElementById("searchText").value);
     //   console.log("boo!");
-    // var wikiSearchUrl = "#";
-    // $.ajax({
-    //   type: "GET",
-    //   url: wikiSearchUrl,
-    //   success: function(data){
-    //     console.log(data);
-        
-    //   }
-    // });
+    var search = document.getElementById("searchText").value;
+    var wikiSearchUrl = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+search+"&format=json"
+    // var wikiSearchUrl = "https://en.wikipedia.org/w/api.php?action=query&list=dog&rnnamespace=0&origin=*&format=json";
+    $.ajax({
+      type: "GET",
+      dataType: 'jsonp',
+      url: wikiSearchUrl,
+      crossDomain:true,
+      success: function(data){
+        console.log(data);
+        $(".searchMenu").append("<div class='searchResults0'>"+data["query"]["search"][0]["title"] + "</div>");
+        for (var ii =1; ii < data["query"]["search"].length -1; ii++){
+          $(".searchMenu").append("<div class=\'searchResults"+ii+"\'>"+data["query"]["search"][ii]["title"] + "</div>");
+          console.log(data["query"]["search"][ii]["title"]);
+        }
+      }
+    });
    });  
 
   $("#feelLuckyButton").click(function(){

@@ -11,38 +11,49 @@
  */
 
  $(document).ready(function(){
-   // change to different layout outline
+   // when searchButton has been pressed
    $('#searchButton').click(function(event) {
-      event.preventDefault();
-  //  $("#searchForm").submit(function(){
-      $(".titleClass").css("padding-top","0px");
-      //  window.open("https://en.wikipedia.org/wiki/"+document.getElementById("searchText").value);
-      // alert(document.getElementById("searchText").value);
-    //   console.log("boo!");
+    event.preventDefault();
     var search = document.getElementById("searchText").value;
-    var wikiSearchUrl = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+search+"&format=json"
-    // var wikiSearchUrl = "https://en.wikipedia.org/w/api.php?action=query&list=dog&rnnamespace=0&origin=*&format=json";
+    console.log(typeof(search));
+    // if no search input
+        if (search==="") {
+          return;
+        }
+    var wikiSearchUrl = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+search+"&format=json";
     $.ajax({
       type: "GET",
       dataType: 'jsonp',
       url: wikiSearchUrl,
       crossDomain:true,
       success: function(data){
-        console.log(data);
+        // push titleClass to top of page
+        $(".titleClass").css("padding-top","0px");
+        // remove all past results
+        $(".output").remove();
+        // show results
         var result = data["query"]["search"][0]["title"];
-        $(".searchMenu").append("<div class='searchResults0'></div>");
-        $(".searchResults0").html("<a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+searchResult+"\'>"+result+"</a>");
+        $(".searchMenu").append("<div class='searchResults0 output'></div>");
+        $(".searchResults0").html("<a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+result+"\'>"+result+"</a>");
         for (var ii =1; ii < data["query"]["search"].length -1; ii++){
-          var appendValue = ii-1
-          $(".searchResults"+appendValue).append("<div class=\'searchResults"+ii+"\'></div>");
+          if (ii > 10) break;
+          var appendValue = ii-1;
+          $(".searchResults"+appendValue).append("<div class=\'searchResults"+ii+" output\'></div>");
           var searchResult = data["query"]["search"][ii]["title"];
-          $(".searchResults"+ii).html("<a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+searchResult+"\'>"+searchResult+"</a>");
+          $(".searchResults"+ii).html("<a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+searchResult+"\'>"+searchResult+"</a>"
+          +"<br>"+ data["query"]["search"][ii]["snippet"]+"...");
+          $(".searchResults"+ii).css({
+            "padding": "20px",
+            "font-family":'Roboto, sans-serif',
+            "text-align": "center",
+          });
           console.log(data["query"]["search"][ii]["title"]);
         }
       }
     });
    });  
 
+  // feel lucky button 
   $("#feelLuckyButton").click(function(){
     var url = "https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&origin=*&format=json"; // zero to call random
     $.ajax({

@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" type="text/css" href="css/WikiView.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <title>WikiSearch</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./WikiView.js"></script>
+
+  </head>
+  <body>
+    <div class = "container-fluid">
+      <div class="searchMenu">
+        <div class = "row">
+          <div class="col-xs-12"><a href="./WikiView.html" style="color:white"><h1 class = "titleClass">WikiSearch</a></h1></div>
+        </div>
+    
+        <div class = "row">   
+          <div class = "col-xs-12 searchBar">
+            <form id ="searchForm">
+              <input type=”text” name = "s" required placeholder='what do you want to learn about today?' size = "50" id="searchText">
+              <input type="submit" value = "Search" class = "buttonStyle" id="searchButton">
+            </form>
+          </div>
+        </div>
+        <br>
+        <div class = "row">
+            <div class = "formatLuckyButton"><button type="submit btn" class = "buttonStyle" id="feelLuckyButton"> I'm feeling positive! </button> </div>
+        </div>
+      </div>   
+    </div>
+  </body>
+</html>

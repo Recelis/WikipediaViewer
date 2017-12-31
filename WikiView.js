@@ -15,7 +15,6 @@
    $('#searchButton').click(function(event) {
     event.preventDefault();
     var search = document.getElementById("searchText").value;
-    console.log(typeof(search));
     // if no search input
         if (search==="") {
           return;
@@ -31,37 +30,6 @@
       }
     });
    });  
-
-   function displayResults(data){
-    // remove all past results
-    $(".results").remove();
-    // lift WikiSearch title to top of page
-    $(".titleClass").css("padding-top","0px");
-    // show results
-    /*
-      <div> SearchResults0  
-        titleClass
-        SearchResultsx output
-
-    */
-    const result = data["query"]["search"][0]["title"];
-    // create div for all search results
-    $(".searchMenu").append("<div class = 'searchResults results'></div>");
-    // main search result title
-    $(".searchResults").append("<div class='searchTitle'></div>");
-    $(".searchTitle").html("Search Results for <a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+result+"\'>"+result+"</a>"); // push titleClass to top of page
-    
-    // results
-    for (var ii =1; ii < data["query"]["search"].length -1; ii++){
-    // create div for each result
-    $(".searchResults").append("<div class='key" + ii + " result'></div>");
-    // append to div
-    var searchResult = data["query"]["search"][ii]["title"];
-    $(".key" + ii).append("<p class = 'resultTitle'><a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+searchResult+"\'>"+searchResult+"</a></p>");
-    $(".key"+ii).append("<p class = 'resultText'>" + data["query"]["search"][ii]["snippet"]+"..." + "</p>");
-    }
-  }
-
   // feel lucky button 
   $("#feelLuckyButton").click(function(){
     var url = "https://en.wikipedia.org/w/api.php?action=query&list=random&rnnamespace=0&origin=*&format=json"; // zero to call random
@@ -76,3 +44,39 @@
   });
  }
  );
+
+/*
+ Search Result Structure 
+    searchResults results Div 
+      searchTitle
+      key1
+        resultTitle
+        resultText
+      key2
+      ... etc
+  */
+
+ function displayResults(data){
+  // remove all past results
+  $(".results").remove();
+  // lift WikiSearch title to top of page
+  $(".titleClass").css("padding-top","0px");
+  // show results
+  
+  const result = data["query"]["search"][0]["title"];
+  // create div for all search results
+  $(".searchMenu").append("<div class = 'searchResults results'></div>");
+  // main search result title
+  $(".searchResults").append("<div class='searchTitle'></div>");
+  $(".searchTitle").html("Search Results for <a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+result+"\'>"+result+"</a>"); // push titleClass to top of page
+  
+  // results
+  for (var ii =1; ii < data["query"]["search"].length -1; ii++){
+  // create div for each result
+  $(".searchResults").append("<div class='key" + ii + " result'></div>");
+  // append to div
+  var searchResult = data["query"]["search"][ii]["title"];
+  $(".key" + ii).append("<p class = 'resultTitle'><a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+searchResult+"\'>"+searchResult+"</a></p>");
+  $(".key"+ii).append("<p class = 'resultText'>" + data["query"]["search"][ii]["snippet"]+"..." + "</p>");
+  }
+}

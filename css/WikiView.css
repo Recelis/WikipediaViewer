@@ -10,7 +10,6 @@ body{
     font-family: 'Roboto', sans-serif;
     font-size: 50px;
     padding-top: 250px;
-    color: white;
 }
 
 
@@ -44,10 +43,29 @@ body{
     
 }
 
-.searchResults0{
+.searchResults{
+    margin:20px auto 20px auto;
     padding: 20px;
     font-family:'Roboto', 'sans-serif';
-    text-align: center;
+    text-align: left;
+    background-color:rgba(255, 255, 255, 0.8);
+    width:60%;
+    size:16px;
+    border:0px solid transparent;
+    border-radius:1%;
 }
 
+.searchTitle{
+    text-align:left;
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.resultTitle{
+    font-size:18px;
+}
+
+.resultText{
+    font-size:16px;
+}
 

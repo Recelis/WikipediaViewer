@@ -27,31 +27,40 @@
       url: wikiSearchUrl,
       crossDomain:true,
       success: function(data){
-        // push titleClass to top of page
-        $(".titleClass").css("padding-top","0px");
-        // remove all past results
-        $(".output").remove();
-        // show results
-        var result = data["query"]["search"][0]["title"];
-        $(".searchMenu").append("<div class='searchResults0 output'></div>");
-        $(".searchResults0").html("<a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+result+"\'>"+result+"</a>");
-        for (var ii =1; ii < data["query"]["search"].length -1; ii++){
-          if (ii > 10) break;
-          var appendValue = ii-1;
-          $(".searchResults"+appendValue).append("<div class=\'searchResults"+ii+" output\'></div>");
-          var searchResult = data["query"]["search"][ii]["title"];
-          $(".searchResults"+ii).html("<a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+searchResult+"\'>"+searchResult+"</a>"
-          +"<br>"+ data["query"]["search"][ii]["snippet"]+"...");
-          $(".searchResults"+ii).css({
-            "padding": "20px",
-            "font-family":'Roboto, sans-serif',
-            "text-align": "center",
-          });
-          console.log(data["query"]["search"][ii]["title"]);
-        }
+        displayResults(data);
       }
     });
    });  
+
+   function displayResults(data){
+    // remove all past results
+    $(".results").remove();
+    // lift WikiSearch title to top of page
+    $(".titleClass").css("padding-top","0px");
+    // show results
+    /*
+      <div> SearchResults0  
+        titleClass
+        SearchResultsx output
+
+    */
+    const result = data["query"]["search"][0]["title"];
+    // create div for all search results
+    $(".searchMenu").append("<div class = 'searchResults results'></div>");
+    // main search result title
+    $(".searchResults").append("<div class='searchTitle'></div>");
+    $(".searchTitle").html("Search Results for <a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+result+"\'>"+result+"</a>"); // push titleClass to top of page
+    
+    // results
+    for (var ii =1; ii < data["query"]["search"].length -1; ii++){
+    // create div for each result
+    $(".searchResults").append("<div class='key" + ii + " result'></div>");
+    // append to div
+    var searchResult = data["query"]["search"][ii]["title"];
+    $(".key" + ii).append("<p class = 'resultTitle'><a target=\"_blank\" href = \'https://en.wikipedia.org/wiki/"+searchResult+"\'>"+searchResult+"</a></p>");
+    $(".key"+ii).append("<p class = 'resultText'>" + data["query"]["search"][ii]["snippet"]+"..." + "</p>");
+    }
+  }
 
   // feel lucky button 
   $("#feelLuckyButton").click(function(){
@@ -61,8 +70,7 @@
       url: url,
       async : false, // not sure what this is actually doing
       success: function(data){
-      console.log(data["query"]["random"][0]["title"]);
-      window.open("https://en.wikipedia.org/wiki/"+data["query"]["random"][0]["title"]);
+        window.open("https://en.wikipedia.org/wiki/"+data["query"]["random"][0]["title"]);
       }
     });
   });

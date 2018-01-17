@@ -69,3 +69,18 @@ body{
     font-size:16px;
 }
 
+.copyright{
+    position:absolute;
+    bottom:5%;
+    width:300px;
+    left:50%;
+    margin-left:-150px;
+}
+
+.github{
+    width:50px;
+    height:50px;
+    border:solid 0px transparent;
+    background-color:transparent;
+  }
+  

@@ -80,3 +80,7 @@
   $(".key"+ii).append("<p class = 'resultText'>" + data["query"]["search"][ii]["snippet"]+"..." + "</p>");
   }
 }
+
+function openWindow(){
+  window.open("https://github.com/Recelis/WikipediaViewer",'_blank');
+}
